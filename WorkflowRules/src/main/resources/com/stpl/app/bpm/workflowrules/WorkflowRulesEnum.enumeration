@@ -1,2 +1,0 @@
-'NonMandatedRulesDTO.variableName' : ["Projected_Contract_Sales_Dollars","Projected_Contract_Sales_Units","Projected_Discount_Dollars","Projected_Discount_Rate","Net_Sales"]
-'NonMandatedRulesDTO.condition' : ["Greatest of all CCP",'Lowest of all CCP']

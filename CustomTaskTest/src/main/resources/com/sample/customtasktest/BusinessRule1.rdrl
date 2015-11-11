@@ -1,9 +1,0 @@
-package com.sample.customtasktest;
-
-import java.lang.Number;
-
-rule "BusinessRule1"
-	dialect "mvel"
-	when
-	then
-end

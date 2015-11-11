@@ -1,5 +1,0 @@
-'NonMandatedRulesDTO.variableName' : ["Projected_Contract_Sales_Dollars","Projected_Contract_Sales_Units","Projected_Discount_Dollars","Projected_Discount_Rate","Net_Sales"]
-'NonMandatedRulesDTO.userOrRoleType[for_Approve=false]' : [""]
-'NonMandatedRulesDTO.userOrRoleType[for_Approve=true]' : ["User","Role","Users"]
-'NonMandatedRulesDTO.userOrRole[userOrRoleType=User]' : (new com.stpl.app.bpm.util.CommonUtil()).getUserRole("User")
-'NonMandatedRulesDTO.userOrRole[userOrRoleType=Role]' : (new com.stpl.app.bpm.util.CommonUtil()).getUserRole("Role")
