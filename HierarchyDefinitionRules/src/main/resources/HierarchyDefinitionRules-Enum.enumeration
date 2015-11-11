@@ -1,6 +1,0 @@
-'HierarchyDefinitionRuleDTO.fieldName' : (new com.stpl.app.bpm.util.CommonUtil()).getHierarchyFields()
-'HierarchyDefinitionLevelRuleDTO.dimension' : (new  com.stpl.app.bpm.util.CommonUtil()).getEntityNames()
-'HierarchyDefinitionLevelRuleDTO.attribute[dimension=ITEM_MASTER]' : (new com.stpl.app.bpm.util.CommonUtil()).getColumnName("ITEM_MASTER")
-'HierarchyDefinitionLevelRuleDTO.attribute[dimension=COMPANY_MASTER]' : (new com.stpl.app.bpm.util.CommonUtil()).getColumnName("COMPANY_MASTER")
-'HierarchyDefinitionLevelRuleDTO.attribute[dimension=CONTRACT_MASTER]' : (new com.stpl.app.bpm.util.CommonUtil()).getColumnName("CONTRACT_MASTER")
-'HierarchyDefinitionLevelRuleDTO.condition1' : ["equal to","starts with","ends with","greater than","greater than or equal to","lesser than","lesser than or equal to","in"]
