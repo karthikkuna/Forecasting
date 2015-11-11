@@ -1,0 +1,13 @@
+<configuration>
+  <imports>
+    <imports>
+      <import>
+        <type>com.stpl.app.bpm.dto.NonMandatedRulesDTO</type>
+      </import>
+      <import>
+        <type>java.lang.Number</type>
+      </import>
+    </imports>
+  </imports>
+  <version>1.0</version>
+</configuration>

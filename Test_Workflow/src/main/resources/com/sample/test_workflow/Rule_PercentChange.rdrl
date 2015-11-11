@@ -1,0 +1,14 @@
+package com.sample.test_workflow;
+
+import com.stpl.app.bpm.dto.NonMandatedRulesDTO;
+
+rule "Rule_PercentChange"
+	dialect "mvel"
+	ruleflow-group "RG_Workflow2"
+	when
+		f1 : NonMandatedRulesDTO( variableName == "Net_Sales" && ( percent >= 30 && percent <= 40 ))
+	then
+		f1.setFor_Approve( true );
+		f1.setUserOrRoleType( "Users" );
+		f1.setUserOrRole( "UserA,UserB" );
+end

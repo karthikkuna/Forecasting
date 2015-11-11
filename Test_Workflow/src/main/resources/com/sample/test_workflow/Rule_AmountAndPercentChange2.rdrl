@@ -1,0 +1,12 @@
+package com.sample.test_workflow;
+
+import com.stpl.app.bpm.dto.NonMandatedRulesDTO;
+
+rule "Rule_AmountAndPercentChange2"
+	dialect "java"
+	ruleflow-group "RG_Workflow2"
+	when
+		f1 : NonMandatedRulesDTO( variableName == "Net_Sales" && ( amount <= 3000 || percent <= 10 ))
+	then
+		f1.setFor_Approve( false );
+end

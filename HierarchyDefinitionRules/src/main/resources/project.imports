@@ -1,0 +1,10 @@
+<configuration>
+  <imports>
+    <imports>
+      <import>
+        <type>com.stpl.app.bpm.dto.HierarchyDefinitionLevelRuleDTO</type>
+      </import>
+    </imports>
+  </imports>
+  <version>1.0</version>
+</configuration>

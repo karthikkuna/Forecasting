@@ -1,0 +1,1964 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_Im8U8HMZEeWxGaQjZ7dzUQ" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" exporter="jBPM Designer" exporterVersion="6.2.0" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.omg.org/bpmn20" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_approveFlagItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_errorFlagItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_Net_SalesItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="_projectionIdItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="_Projected_Contract_Sales_DollarsItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="_Projected_Contract_Sales_UnitsItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="_Projected_Discount_DollarsItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="_Projected_Discount_RateItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="_Net_ProfitItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="_Auto_ApprovalItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="_Approval_ByItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_SalesInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_DollarsInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_UnitsInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_DollarsInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_RateInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_ProfitInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_SalesInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_DollarsInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_UnitsInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_DollarsInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_RateInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_ProfitInputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_SalesOutputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_DollarsOutputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_UnitsOutputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_DollarsOutputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_RateOutputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_ProfitOutputXItem" structureRef="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+  <bpmn2:itemDefinition id="__D9DD9315-7429-4DC7-AA95-1052FEF23AE3_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__D9DD9315-7429-4DC7-AA95-1052FEF23AE3_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__D9DD9315-7429-4DC7-AA95-1052FEF23AE3_approveFlagOutputXItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="__0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_approveFlagOutputXItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="__EC62D2DD-73BE-444A-A106-E5C7BE43AA84_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__EC62D2DD-73BE-444A-A106-E5C7BE43AA84_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__EC62D2DD-73BE-444A-A106-E5C7BE43AA84_projectionIdOutputXItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="__D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_projectionIdOutputXItem" structureRef="Integer"/>
+  <bpmn2:itemDefinition id="__1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_GroupIdInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_approveFlagOutputXItem" structureRef="Boolean"/>
+  <bpmn2:itemDefinition id="__A0DD3978-B492-4B2C-B274-0E19B0D1EF92_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__2A7735C1-859C-47C3-BC2E-B7BA5263AA9F_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__EA17F1C7-E837-4D82-A0E4-A2E556DE1897_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__E10926CD-6028-4AAD-9453-1CFF60458E0F_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__125CEF11-8B33-4524-A9BF-4DDFECE75890_SkippableInputXItem" structureRef="Object"/>
+  <bpmn2:process id="Test_Workflow.SubmissionWorkflow" drools:packageName="org.jbpm" drools:version="2.0" name="SubmissionWorkflow">
+    <bpmn2:extensionElements>
+      <drools:global identifier="out_Net_Sales" type="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+      <drools:global identifier="out_Projected_Contract_Sales_Dollars" type="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+      <drools:global identifier="out_Projected_Contract_Sales_Units" type="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+      <drools:global identifier="out_Projected_Discount_Dollars" type="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+      <drools:global identifier="out_Projected_Discount_Rate" type="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+      <drools:global identifier="out_Net_Profit" type="com.stpl.app.bpm.dto.NonMandatedRulesDTO"/>
+    </bpmn2:extensionElements>
+    <bpmn2:property id="approveFlag" itemSubjectRef="_approveFlagItem"/>
+    <bpmn2:property id="errorFlag" itemSubjectRef="_errorFlagItem"/>
+    <bpmn2:property id="Net_Sales" itemSubjectRef="_Net_SalesItem"/>
+    <bpmn2:property id="projectionId" itemSubjectRef="_projectionIdItem"/>
+    <bpmn2:property id="Projected_Contract_Sales_Dollars" itemSubjectRef="_Projected_Contract_Sales_DollarsItem"/>
+    <bpmn2:property id="Projected_Contract_Sales_Units" itemSubjectRef="_Projected_Contract_Sales_UnitsItem"/>
+    <bpmn2:property id="Projected_Discount_Dollars" itemSubjectRef="_Projected_Discount_DollarsItem"/>
+    <bpmn2:property id="Projected_Discount_Rate" itemSubjectRef="_Projected_Discount_RateItem"/>
+    <bpmn2:property id="Net_Profit" itemSubjectRef="_Net_ProfitItem"/>
+    <bpmn2:property id="Auto_Approval" itemSubjectRef="_Auto_ApprovalItem"/>
+    <bpmn2:property id="Approval_By" itemSubjectRef="_Approval_ByItem"/>
+    <bpmn2:laneSet id="_Im88AHMZEeWxGaQjZ7dzUQ">
+      <bpmn2:lane id="_CF03760C-BF10-404A-B272-FE6D8B4CAB04" drools:bgcolor="#FFFF99" drools:selectable="true" name="Regional Manager 1">
+        <bpmn2:flowNodeRef>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_070842AA-631D-416C-9CA1-2D03CE0A9F2C" drools:bgcolor="#CCFFFF" drools:selectable="true" name="Contract Analyst Heavy Director">
+        <bpmn2:flowNodeRef>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_0D5D4F30-656D-4C68-95BB-14139110D6B5" drools:bgcolor="#99CCFF" drools:selectable="true" name="Contract Analyst Manager">
+        <bpmn2:flowNodeRef>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081</bpmn2:flowNodeRef>
+        <bpmn2:flowNodeRef>_C4FD5267-CA6E-4495-9996-800B5DB921DD</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_10322A0D-F0D4-4C88-B7AE-E4285898CDBB" drools:bgcolor="#CC99FF" drools:selectable="true" name="Regional Manager 2">
+        <bpmn2:flowNodeRef>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_DDF9D3B6-43B2-40F3-AFC1-7D90A33BC85E" drools:bgcolor="#CCFFFF" drools:selectable="true" name="Stage 1">
+        <bpmn2:flowNodeRef>_A0DD3978-B492-4B2C-B274-0E19B0D1EF92</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_54C8ECDE-8B38-49EF-A027-18F72C1B5A43" drools:bgcolor="#CCFFFF" drools:selectable="true" name="Stage 3">
+        <bpmn2:flowNodeRef>_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_10D3FC36-BBE0-4F08-A195-65D8C7D8752C" drools:bgcolor="#CCFFFF" drools:selectable="true" name="Stage 1">
+        <bpmn2:flowNodeRef>_EA17F1C7-E837-4D82-A0E4-A2E556DE1897</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_EBC2894A-1473-4AB0-8E76-62C72FAA61C2" drools:bgcolor="#CCFFFF" drools:selectable="true" name="Stage 2">
+        <bpmn2:flowNodeRef>_E10926CD-6028-4AAD-9453-1CFF60458E0F</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+      <bpmn2:lane id="_78A01E5E-1C2A-418A-A4D3-0119B8B39662" drools:bgcolor="#CCFFFF" drools:selectable="true" name="Stage 2">
+        <bpmn2:flowNodeRef>_125CEF11-8B33-4524-A9BF-4DDFECE75890</bpmn2:flowNodeRef>
+      </bpmn2:lane>
+    </bpmn2:laneSet>
+    <bpmn2:startEvent id="_A895D4DB-9891-4007-9E14-A6DA764DF3FC" drools:bgcolor="#9acd32" drools:selectable="true" name="">
+      <bpmn2:documentation id="_Im88AXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:outgoing>_38FF2437-21EB-4F72-908F-73D0097AFB8F</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:sequenceFlow id="_38FF2437-21EB-4F72-908F-73D0097AFB8F" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_A895D4DB-9891-4007-9E14-A6DA764DF3FC" targetRef="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84">
+      <bpmn2:documentation id="_Im88AnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_20F4415F-DB5F-470D-BF1D-C7C64A9BFFFA" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84" targetRef="_C4FD5267-CA6E-4495-9996-800B5DB921DD">
+      <bpmn2:documentation id="_Im88A3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_C98CF684-5DBB-4BD6-A9C0-84422F6B1649" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_C4FD5267-CA6E-4495-9996-800B5DB921DD" targetRef="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081">
+      <bpmn2:documentation id="_Im88BHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_E342EF65-2EE9-4EF4-8A1A-C7FA0C73F7B2" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="Is Valid ?" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im88BXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_05F0A5B3-5F05-40F5-80CA-6F7B7E3BB145</bpmn2:incoming>
+      <bpmn2:outgoing>_E0F53F65-7443-4D7B-AC84-8832C5596AAC</bpmn2:outgoing>
+      <bpmn2:outgoing>_E193EF59-B6C8-413D-BDC9-45349BB82A48</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_05F0A5B3-5F05-40F5-80CA-6F7B7E3BB145" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_50822C1F-911F-48BD-A693-107105EAF6A1" targetRef="_E342EF65-2EE9-4EF4-8A1A-C7FA0C73F7B2">
+      <bpmn2:documentation id="_Im88BnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_24CEABBB-2BB1-4C56-85F4-AC94CA7F4DC8" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name=" " gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im88B3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_657DEFB1-676F-406A-8E7D-3E95329790A2</bpmn2:incoming>
+      <bpmn2:outgoing>_835811DF-40DC-4C76-807B-CBBE21E515DD</bpmn2:outgoing>
+      <bpmn2:outgoing>_D21C9B09-EAD2-4D6E-8F65-5D31FCA00554</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_657DEFB1-676F-406A-8E7D-3E95329790A2" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226" targetRef="_24CEABBB-2BB1-4C56-85F4-AC94CA7F4DC8">
+      <bpmn2:documentation id="_Im88CHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_E6FC689F-AF86-4138-9613-75DFEF948DA0" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="Check" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im88CXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_FDD1F12F-C5C2-474D-875D-3CAA3B95721D</bpmn2:incoming>
+      <bpmn2:outgoing>_6B646F31-A9A7-41C0-99B2-DC5729DDE873</bpmn2:outgoing>
+      <bpmn2:outgoing>_C6B5ABC9-3CBE-4108-A07F-DD45D56B2B03</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_FDD1F12F-C5C2-474D-875D-3CAA3B95721D" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3" targetRef="_E6FC689F-AF86-4138-9613-75DFEF948DA0">
+      <bpmn2:documentation id="_Im88CnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_835811DF-40DC-4C76-807B-CBBE21E515DD" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_24CEABBB-2BB1-4C56-85F4-AC94CA7F4DC8" targetRef="_60B2CA27-3271-43CD-AC4F-4104437A613E">
+      <bpmn2:documentation id="_Im88C3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im88DHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[if(approveFlag){
+kcontext.setVariable("errorFlag","projection Approved from WorkflowInbox sucesfully");
+  return true;
+}else{ 
+return false;
+}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:endEvent id="_47A5FE3D-5E18-44E6-8633-225F7B65DD59" drools:bgcolor="#ff6347" drools:selectable="true" name="">
+      <bpmn2:documentation id="_Im88DXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_7E85908D-52D5-46B2-A3D0-C9E72B178FCA</bpmn2:incoming>
+    </bpmn2:endEvent>
+    <bpmn2:sequenceFlow id="_7E85908D-52D5-46B2-A3D0-C9E72B178FCA" drools:bgcolor="#000000" drools:selectable="true" name="Submit from CFF" sourceRef="_1F644F4C-78D3-4808-B0AC-174ED32D1EA6" targetRef="_47A5FE3D-5E18-44E6-8633-225F7B65DD59">
+      <bpmn2:documentation id="_Im88DnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_270CA6D2-D7E0-42AC-99DA-37FC83B7E9E1" drools:bgcolor="#000000" drools:selectable="true" name="Reject" sourceRef="_7849AD69-839D-4987-9AC0-263B8FE6FC53" targetRef="_C4FD5267-CA6E-4495-9996-800B5DB921DD">
+      <bpmn2:documentation id="_Im88D3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:scriptTask id="_1F644F4C-78D3-4808-B0AC-174ED32D1EA6" drools:selectable="true" name="Approve Projection" scriptFormat="http://www.java.com/java">
+      <bpmn2:documentation id="_Im88EHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_69FAF235-319B-4C5B-BA40-698CDB2ACE82</bpmn2:incoming>
+      <bpmn2:outgoing>_7E85908D-52D5-46B2-A3D0-C9E72B178FCA</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[System.out.println("Workflow Successfully completed**************************************");]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="_F2DFB65E-6665-4969-A3C8-E5387919747D" drools:bgcolor="#000000" drools:selectable="true" name="Valid" sourceRef="_E1D1657A-6800-43D0-8722-8B16A8B1F719" targetRef="_8580F0AE-1716-4E2E-A0FA-E4D11E2CB653">
+      <bpmn2:documentation id="_Im88EXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im88EnMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(Approval_By, "1User");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_6B646F31-A9A7-41C0-99B2-DC5729DDE873" drools:bgcolor="#000000" drools:selectable="true" name="Reject from CFF" sourceRef="_E6FC689F-AF86-4138-9613-75DFEF948DA0" targetRef="_E31192E5-3A6D-40D5-8CBC-53AC1B52625E">
+      <bpmn2:documentation id="_Im88E3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im88FHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[if(!approveFlag){
+kcontext.setVariable("errorFlag","projection Rejected from 1 st Level in CFF");
+  return true;
+}else{ 
+return false;
+}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_C6B5ABC9-3CBE-4108-A07F-DD45D56B2B03" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_E6FC689F-AF86-4138-9613-75DFEF948DA0" targetRef="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE">
+      <bpmn2:documentation id="_Im88FXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im88FnMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[if(approveFlag){
+kcontext.setVariable("errorFlag","projection Approved from 1 st Level in CFF");
+  return true;
+}else{ 
+return false;
+}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_00C25403-2E4A-4012-B050-29F3592E512A" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="Check" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im88F3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_36E54621-35D1-49DC-90C5-435848264367</bpmn2:incoming>
+      <bpmn2:outgoing>_69FAF235-319B-4C5B-BA40-698CDB2ACE82</bpmn2:outgoing>
+      <bpmn2:outgoing>_55B220DB-1EFE-49FB-AB5F-84AEA2BA1BA4</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_36E54621-35D1-49DC-90C5-435848264367" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE" targetRef="_00C25403-2E4A-4012-B050-29F3592E512A">
+      <bpmn2:documentation id="_Im88GHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_69FAF235-319B-4C5B-BA40-698CDB2ACE82" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_00C25403-2E4A-4012-B050-29F3592E512A" targetRef="_1F644F4C-78D3-4808-B0AC-174ED32D1EA6">
+      <bpmn2:documentation id="_Im88GXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im88GnMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[if(approveFlag){
+kcontext.setVariable("errorMsg","projection Approved from 2 nd Level in CFF");
+  return true;
+}else{ 
+return false;
+}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_55B220DB-1EFE-49FB-AB5F-84AEA2BA1BA4" drools:bgcolor="#000000" drools:selectable="true" name="Reject" sourceRef="_00C25403-2E4A-4012-B050-29F3592E512A" targetRef="_60B2CA27-3271-43CD-AC4F-4104437A613E">
+      <bpmn2:documentation id="_Im88G3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im88HHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[if(!approveFlag){
+kcontext.setVariable("errorMsg","projection Rejected from 2 nd Level in CFF");
+  return true;
+}else{ 
+return false;
+}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_E1D1657A-6800-43D0-8722-8B16A8B1F719" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im88HXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_E0F53F65-7443-4D7B-AC84-8832C5596AAC</bpmn2:incoming>
+      <bpmn2:outgoing>_F2DFB65E-6665-4969-A3C8-E5387919747D</bpmn2:outgoing>
+      <bpmn2:outgoing>_8035C187-0D75-4193-AB50-1780B1132DF1</bpmn2:outgoing>
+      <bpmn2:outgoing>_EDAAC55F-E163-43A0-A891-B5A56E94A27B</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_60B2CA27-3271-43CD-AC4F-4104437A613E" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im88HnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_A660F573-D1C3-4F51-8062-DD2585A04A2D</bpmn2:incoming>
+      <bpmn2:incoming>_835811DF-40DC-4C76-807B-CBBE21E515DD</bpmn2:incoming>
+      <bpmn2:incoming>_E193EF59-B6C8-413D-BDC9-45349BB82A48</bpmn2:incoming>
+      <bpmn2:incoming>_65BEED28-7EDB-4421-A0DB-6A0F5CF61949</bpmn2:incoming>
+      <bpmn2:incoming>_55B220DB-1EFE-49FB-AB5F-84AEA2BA1BA4</bpmn2:incoming>
+      <bpmn2:outgoing>_7EE5AB6A-65D1-4C9D-8649-FA8C4618F8E1</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_7EE5AB6A-65D1-4C9D-8649-FA8C4618F8E1" drools:bgcolor="#000000" drools:selectable="true" name="Submitted from workflow" sourceRef="_60B2CA27-3271-43CD-AC4F-4104437A613E" targetRef="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3">
+      <bpmn2:documentation id="_Im88H3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:businessRuleTask id="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA" drools:selectable="true" drools:ruleFlowGroup="RG_Workflow10" drools:scriptFormat="http://www.java.com/java" name="Business Rule">
+      <bpmn2:documentation id="_Im88IHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_A28251C3-C97C-452F-8A05-CCAAE93DC517</bpmn2:incoming>
+      <bpmn2:outgoing>_3DBE5B1A-72FE-40D0-BD30-DCBA266A98F3</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im88IXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_SalesInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_SalesInputXItem" name="in_Net_Sales"/>
+        <bpmn2:dataInput id="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_DollarsInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_DollarsInputXItem" name="in_Projected_Contract_Sales_Dollars"/>
+        <bpmn2:dataInput id="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_UnitsInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_UnitsInputXItem" name="in_Projected_Contract_Sales_Units"/>
+        <bpmn2:dataInput id="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_DollarsInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_DollarsInputXItem" name="in_Projected_Discount_Dollars"/>
+        <bpmn2:dataInput id="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_RateInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_RateInputXItem" name="in_Projected_Discount_Rate"/>
+        <bpmn2:dataInput id="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_ProfitInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_ProfitInputXItem" name="in_Net_Profit"/>
+        <bpmn2:inputSet id="_Im88InMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_SalesInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_DollarsInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_UnitsInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_DollarsInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_RateInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_ProfitInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im9jEHMZEeWxGaQjZ7dzUQ"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im9jEXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>Net_Sales</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_SalesInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jEnMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>Projected_Contract_Sales_Dollars</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_DollarsInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jE3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>Projected_Contract_Sales_Units</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Contract_Sales_UnitsInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jFHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>Projected_Discount_Dollars</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_DollarsInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jFXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>Projected_Discount_Rate</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Projected_Discount_RateInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jFnMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>Net_Profit</bpmn2:sourceRef>
+        <bpmn2:targetRef>_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA_in_Net_ProfitInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:businessRuleTask>
+    <bpmn2:sequenceFlow id="_A28251C3-C97C-452F-8A05-CCAAE93DC517" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_F3AB53B1-A577-4490-8857-A063C834CB32" targetRef="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA">
+      <bpmn2:documentation id="_Im9jF3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_3DBE5B1A-72FE-40D0-BD30-DCBA266A98F3" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA" targetRef="_50822C1F-911F-48BD-A693-107105EAF6A1">
+      <bpmn2:documentation id="_Im9jGHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_E0F53F65-7443-4D7B-AC84-8832C5596AAC" drools:bgcolor="#000000" drools:selectable="true" name="For Approval" sourceRef="_E342EF65-2EE9-4EF4-8A1A-C7FA0C73F7B2" targetRef="_E1D1657A-6800-43D0-8722-8B16A8B1F719">
+      <bpmn2:documentation id="_Im9jGXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jGnMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[
+System.out.println("Workflow for Approval process :"+!Auto_Approval);
+
+
+if(Auto_Approval!=null && Auto_Approval){
+  return false;
+}else{
+  kcontext.setVariable("errorFlag","false");
+ return true; 
+}
+// forApprove variable shld return true 
+]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_E193EF59-B6C8-413D-BDC9-45349BB82A48" drools:bgcolor="#000000" drools:selectable="true" name="Auto approve " sourceRef="_E342EF65-2EE9-4EF4-8A1A-C7FA0C73F7B2" targetRef="_60B2CA27-3271-43CD-AC4F-4104437A613E">
+      <bpmn2:documentation id="_Im9jG3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jHHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[
+
+
+
+System.out.println("Workflow Auto_Approval process :"+Auto_Approval);
+
+
+if(Auto_Approval!=null && Auto_Approval){
+  kcontext.setVariable("errorFlag","false");
+ return true; 
+}else{
+  return false; 
+}
+// forApprove variable shld return true 
+
+//  AutoApprove variable should return true
+//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:task id="_F3AB53B1-A577-4490-8857-A063C834CB32" drools:selectable="true" drools:taskName="CustomWorkHandler" name="ServiceTask">
+      <bpmn2:incoming>_F2A5B134-8D53-4A68-BAD3-51860650D999</bpmn2:incoming>
+      <bpmn2:outgoing>_A28251C3-C97C-452F-8A05-CCAAE93DC517</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im9jHXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_F3AB53B1-A577-4490-8857-A063C834CB32_TaskNameInputX" name="TaskName"/>
+        <bpmn2:dataInput id="_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_SalesInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_SalesInputXItem" name="in_Net_Sales"/>
+        <bpmn2:dataInput id="_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_DollarsInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_DollarsInputXItem" name="in_Projected_Contract_Sales_Dollars"/>
+        <bpmn2:dataInput id="_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_UnitsInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_UnitsInputXItem" name="in_Projected_Contract_Sales_Units"/>
+        <bpmn2:dataInput id="_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_DollarsInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_DollarsInputXItem" name="in_Projected_Discount_Dollars"/>
+        <bpmn2:dataInput id="_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_RateInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_RateInputXItem" name="in_Projected_Discount_Rate"/>
+        <bpmn2:dataInput id="_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_ProfitInputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_ProfitInputXItem" name="in_Net_Profit"/>
+        <bpmn2:dataOutput id="_F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_SalesOutputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_SalesOutputXItem" name="out_Net_Sales"/>
+        <bpmn2:dataOutput id="_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_DollarsOutputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_DollarsOutputXItem" name="out_Projected_Contract_Sales_Dollars"/>
+        <bpmn2:dataOutput id="_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_UnitsOutputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_UnitsOutputXItem" name="out_Projected_Contract_Sales_Units"/>
+        <bpmn2:dataOutput id="_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_DollarsOutputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_DollarsOutputXItem" name="out_Projected_Discount_Dollars"/>
+        <bpmn2:dataOutput id="_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_RateOutputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_RateOutputXItem" name="out_Projected_Discount_Rate"/>
+        <bpmn2:dataOutput id="_F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_ProfitOutputX" drools:dtype="com.stpl.app.bpm.dto.NonMandatedRulesDTO" itemSubjectRef="__F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_ProfitOutputXItem" name="out_Net_Profit"/>
+        <bpmn2:inputSet id="_Im9jHnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_SalesInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_DollarsInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_UnitsInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_DollarsInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_RateInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_ProfitInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im9jH3MZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataOutputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_SalesOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_DollarsOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_UnitsOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_DollarsOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_RateOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_ProfitOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im9jIHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_F3AB53B1-A577-4490-8857-A063C834CB32_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jIXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jInMZEeWxGaQjZ7dzUQ">CustomWorkHandler</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jI3MZEeWxGaQjZ7dzUQ">_F3AB53B1-A577-4490-8857-A063C834CB32_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jJHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_SalesInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jJXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jJnMZEeWxGaQjZ7dzUQ"></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jJ3MZEeWxGaQjZ7dzUQ">_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_SalesInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jKHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_DollarsInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jKXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jKnMZEeWxGaQjZ7dzUQ"></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jK3MZEeWxGaQjZ7dzUQ">_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_DollarsInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jLHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_UnitsInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jLXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jLnMZEeWxGaQjZ7dzUQ"></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jL3MZEeWxGaQjZ7dzUQ">_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Contract_Sales_UnitsInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jMHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_DollarsInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jMXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jMnMZEeWxGaQjZ7dzUQ"></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jM3MZEeWxGaQjZ7dzUQ">_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_DollarsInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jNHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_RateInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jNXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jNnMZEeWxGaQjZ7dzUQ"></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jN3MZEeWxGaQjZ7dzUQ">_F3AB53B1-A577-4490-8857-A063C834CB32_in_Projected_Discount_RateInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jOHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_ProfitInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jOXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jOnMZEeWxGaQjZ7dzUQ"></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jO3MZEeWxGaQjZ7dzUQ">_F3AB53B1-A577-4490-8857-A063C834CB32_in_Net_ProfitInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jPHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_SalesOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>Net_Sales</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jPXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_DollarsOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>Projected_Contract_Sales_Dollars</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jPnMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Contract_Sales_UnitsOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>Projected_Contract_Sales_Units</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jP3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_DollarsOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>Projected_Discount_Dollars</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jQHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Projected_Discount_RateOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>Projected_Discount_Rate</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jQXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_F3AB53B1-A577-4490-8857-A063C834CB32_out_Net_ProfitOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>Net_Profit</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_F2A5B134-8D53-4A68-BAD3-51860650D999" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081" targetRef="_F3AB53B1-A577-4490-8857-A063C834CB32">
+      <bpmn2:documentation id="_Im9jQnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:scriptTask id="_50822C1F-911F-48BD-A693-107105EAF6A1" drools:selectable="true" name="Script Task" scriptFormat="http://www.java.com/java">
+      <bpmn2:documentation id="_Im9jQ3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_3DBE5B1A-72FE-40D0-BD30-DCBA266A98F3</bpmn2:incoming>
+      <bpmn2:outgoing>_05F0A5B3-5F05-40F5-80CA-6F7B7E3BB145</bpmn2:outgoing>
+      <bpmn2:script><![CDATA[
+		try {
+			if (  false == Projected_Contract_Sales_Dollars.isFor_Approve() 
+					&& false == Projected_Contract_Sales_Units.isFor_Approve() && false == Projected_Discount_Dollars.isFor_Approve()
+							&& false == Projected_Discount_Rate.isFor_Approve() && false == Net_Sales.isFor_Approve() && false == Net_Profit.isFor_Approve()) {
+				
+				  kcontext.setVariable("Auto_Approval",true);
+			} else {
+				 kcontext.setVariable("Auto_Approval",false);
+				if ("User".equals(Projected_Contract_Sales_Dollars.getUserOrRoleType()) && "User".equals(Projected_Contract_Sales_Units.getUserOrRoleType())
+						&& "User".equals(Projected_Discount_Dollars.getUserOrRoleType()) && "User".equals(Projected_Discount_Rate.getUserOrRoleType()) 
+						&& "User".equals(Net_Sales.getUserOrRoleType())
+						&& "User".equals(Net_Profit.getUserOrRoleType())) {
+					 kcontext.setVariable("Approval_By","1User");
+				}
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+			System.out.println("Projected_Contract_Sales_Dollars-------"+Projected_Contract_Sales_Dollars.getAmount());
+
+			System.out.println("Projected_Contract_Sales_Units-------"+Projected_Contract_Sales_Units.getAmount());
+
+			System.out.println("Projected_Discount_Dollars-------"+Projected_Discount_Dollars.getAmount());
+
+			System.out.println("Projected_Discount_Rate-------"+Projected_Discount_Rate.getAmount());
+
+			System.out.println("Net_Sales-------"+Net_Sales.getAmount());
+
+			System.out.println("Net_Profit-------"+Net_Profit.getAmount());
+			// for approve
+			System.out.println("Projected_Contract_Sales_Dollars.isFor_Approve()----"+Projected_Contract_Sales_Dollars.isFor_Approve());
+					
+			System.out.println("Projected_Contract_Sales_Units.isFor_Approve()---"+Projected_Contract_Sales_Units.isFor_Approve());
+				
+			System.out.println("Projected_Discount_Dollars.isFor_Approve()-----"+Projected_Discount_Dollars.isFor_Approve()) ;
+						
+			System.out.println("Projected_Discount_Rate.isFor_Approve()----"+Projected_Discount_Rate.isFor_Approve()) ;
+					
+			System.out.println("Net_Sales.isFor_Approve()-----"+Net_Sales.isFor_Approve()) ;
+					
+			System.out.println("Net_Profit.isFor_Approve()---------"+Net_Profit.isFor_Approve()) ;]]></bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:exclusiveGateway id="_3575E9CC-A7AA-41CE-8C20-7E27F8034035" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im9jRHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_851128C6-0C0B-4478-A53A-26A389CDB117</bpmn2:incoming>
+      <bpmn2:outgoing>_7D32906E-639B-42AE-BC3F-0DB05502F360</bpmn2:outgoing>
+      <bpmn2:outgoing>_E252A8D2-FC92-48AD-AF49-A97AE411245B</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_9DFFB77B-CE53-4D61-847D-1B29ED601164" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im9jRXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_F6D79432-8ADA-458B-8039-13BDAF75BC57</bpmn2:incoming>
+      <bpmn2:outgoing>_A7B8A2A3-9C88-4638-9C52-7E1DFC75667E</bpmn2:outgoing>
+      <bpmn2:outgoing>_A3764D2E-12D8-41D2-B1A4-AC07D0AE9948</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_15A973D8-2D1D-4F7B-8218-78506E88E8BD" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im9jRnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_A064F147-B086-4C07-9070-7382A895A3F1</bpmn2:incoming>
+      <bpmn2:outgoing>_A660F573-D1C3-4F51-8062-DD2585A04A2D</bpmn2:outgoing>
+      <bpmn2:outgoing>_C2F9048E-DF93-4F3F-A075-C80403EF14F1</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_7D32906E-639B-42AE-BC3F-0DB05502F360" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_3575E9CC-A7AA-41CE-8C20-7E27F8034035" targetRef="_409C62F6-FF7C-4A6F-8954-0C4B2A6EE62A">
+      <bpmn2:documentation id="_Im9jR3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jSHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isTrue(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_A7B8A2A3-9C88-4638-9C52-7E1DFC75667E" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_9DFFB77B-CE53-4D61-847D-1B29ED601164" targetRef="_898EC87A-A896-4D5D-9FA6-B918C649B1B5">
+      <bpmn2:documentation id="_Im9jSXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jSnMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isTrue(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_F6D79432-8ADA-458B-8039-13BDAF75BC57" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_125CEF11-8B33-4524-A9BF-4DDFECE75890" targetRef="_9DFFB77B-CE53-4D61-847D-1B29ED601164">
+      <bpmn2:documentation id="_Im9jS3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_851128C6-0C0B-4478-A53A-26A389CDB117" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_A0DD3978-B492-4B2C-B274-0E19B0D1EF92" targetRef="_3575E9CC-A7AA-41CE-8C20-7E27F8034035">
+      <bpmn2:documentation id="_Im9jTHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_A064F147-B086-4C07-9070-7382A895A3F1" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F" targetRef="_15A973D8-2D1D-4F7B-8218-78506E88E8BD">
+      <bpmn2:documentation id="_Im9jTXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_A660F573-D1C3-4F51-8062-DD2585A04A2D" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_15A973D8-2D1D-4F7B-8218-78506E88E8BD" targetRef="_60B2CA27-3271-43CD-AC4F-4104437A613E">
+      <bpmn2:documentation id="_Im9jTnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jT3MZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isTrue(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_C2F9048E-DF93-4F3F-A075-C80403EF14F1" drools:bgcolor="#000000" drools:selectable="true" name="Reject " sourceRef="_15A973D8-2D1D-4F7B-8218-78506E88E8BD" targetRef="_409C62F6-FF7C-4A6F-8954-0C4B2A6EE62A">
+      <bpmn2:documentation id="_Im9jUHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jUXMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isFalse(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_0B6BC622-D666-44B9-BCF7-95C41DFC4880" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im9jUnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_8035C187-0D75-4193-AB50-1780B1132DF1</bpmn2:incoming>
+      <bpmn2:incoming>_A3764D2E-12D8-41D2-B1A4-AC07D0AE9948</bpmn2:incoming>
+      <bpmn2:outgoing>_539293F0-96BE-45ED-94E7-86EEAD3CEC84</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_8035C187-0D75-4193-AB50-1780B1132DF1" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_E1D1657A-6800-43D0-8722-8B16A8B1F719" targetRef="_0B6BC622-D666-44B9-BCF7-95C41DFC4880">
+      <bpmn2:documentation id="_Im9jU3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jVHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(Approval_By, "3User");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_539293F0-96BE-45ED-94E7-86EEAD3CEC84" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_0B6BC622-D666-44B9-BCF7-95C41DFC4880" targetRef="_A0DD3978-B492-4B2C-B274-0E19B0D1EF92">
+      <bpmn2:documentation id="_Im9jVXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_A3764D2E-12D8-41D2-B1A4-AC07D0AE9948" drools:bgcolor="#000000" drools:selectable="true" name="Reject " sourceRef="_9DFFB77B-CE53-4D61-847D-1B29ED601164" targetRef="_0B6BC622-D666-44B9-BCF7-95C41DFC4880">
+      <bpmn2:documentation id="_Im9jVnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jV3MZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isFalse(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_D80C8999-985D-4011-81F0-65420BB0C3F1" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im9jWHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_EDAAC55F-E163-43A0-A891-B5A56E94A27B</bpmn2:incoming>
+      <bpmn2:incoming>_B79F1494-AB76-4052-A9A8-B8028563FF3F</bpmn2:incoming>
+      <bpmn2:outgoing>_B92B55F0-A193-49E3-A9E2-9C1501D6BCDD</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_A97E408F-1669-42D3-BF7F-B561296267FC" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im9jWXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_AFA52EA5-500D-498B-8B2A-416790AE3D6D</bpmn2:incoming>
+      <bpmn2:outgoing>_79388A93-E93B-45A7-8AD6-59F4ED6DF53A</bpmn2:outgoing>
+      <bpmn2:outgoing>_9D0A352D-79DD-4296-8E2F-321EF432DFA7</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_7C92DD32-9E4D-4927-B3DD-C64609B82EC3" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im9jWnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_6FDB8164-EF0D-41C0-9FD0-4EBF60C61444</bpmn2:incoming>
+      <bpmn2:outgoing>_65BEED28-7EDB-4421-A0DB-6A0F5CF61949</bpmn2:outgoing>
+      <bpmn2:outgoing>_B79F1494-AB76-4052-A9A8-B8028563FF3F</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_B92B55F0-A193-49E3-A9E2-9C1501D6BCDD" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_D80C8999-985D-4011-81F0-65420BB0C3F1" targetRef="_EA17F1C7-E837-4D82-A0E4-A2E556DE1897">
+      <bpmn2:documentation id="_Im9jW3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_AFA52EA5-500D-498B-8B2A-416790AE3D6D" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_EA17F1C7-E837-4D82-A0E4-A2E556DE1897" targetRef="_A97E408F-1669-42D3-BF7F-B561296267FC">
+      <bpmn2:documentation id="_Im9jXHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_79388A93-E93B-45A7-8AD6-59F4ED6DF53A" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_A97E408F-1669-42D3-BF7F-B561296267FC" targetRef="_6D9F453E-DC1B-450B-92F7-4C39986FFDBF">
+      <bpmn2:documentation id="_Im9jXXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jXnMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isTrue(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_6FDB8164-EF0D-41C0-9FD0-4EBF60C61444" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_E10926CD-6028-4AAD-9453-1CFF60458E0F" targetRef="_7C92DD32-9E4D-4927-B3DD-C64609B82EC3">
+      <bpmn2:documentation id="_Im9jX3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_65BEED28-7EDB-4421-A0DB-6A0F5CF61949" drools:bgcolor="#000000" drools:selectable="true" name="Approve" sourceRef="_7C92DD32-9E4D-4927-B3DD-C64609B82EC3" targetRef="_60B2CA27-3271-43CD-AC4F-4104437A613E">
+      <bpmn2:documentation id="_Im9jYHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jYXMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isTrue(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_B79F1494-AB76-4052-A9A8-B8028563FF3F" drools:bgcolor="#000000" drools:selectable="true" name="Reject" sourceRef="_7C92DD32-9E4D-4927-B3DD-C64609B82EC3" targetRef="_D80C8999-985D-4011-81F0-65420BB0C3F1">
+      <bpmn2:documentation id="_Im9jYnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jY3MZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isFalse(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_EDAAC55F-E163-43A0-A891-B5A56E94A27B" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_E1D1657A-6800-43D0-8722-8B16A8B1F719" targetRef="_D80C8999-985D-4011-81F0-65420BB0C3F1">
+      <bpmn2:documentation id="_Im9jZHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jZXMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(Approval_By, "2User");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_7849AD69-839D-4987-9AC0-263B8FE6FC53" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im9jZnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_9D0A352D-79DD-4296-8E2F-321EF432DFA7</bpmn2:incoming>
+      <bpmn2:incoming>_D21C9B09-EAD2-4D6E-8F65-5D31FCA00554</bpmn2:incoming>
+      <bpmn2:incoming>_E252A8D2-FC92-48AD-AF49-A97AE411245B</bpmn2:incoming>
+      <bpmn2:outgoing>_270CA6D2-D7E0-42AC-99DA-37FC83B7E9E1</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_D21C9B09-EAD2-4D6E-8F65-5D31FCA00554" drools:bgcolor="#000000" drools:selectable="true" name="Reject" sourceRef="_24CEABBB-2BB1-4C56-85F4-AC94CA7F4DC8" targetRef="_7849AD69-839D-4987-9AC0-263B8FE6FC53">
+      <bpmn2:documentation id="_Im9jZ3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jaHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[if(!approveFlag){
+kcontext.setVariable("errorFlag","Rejected");
+  return true;
+}else{ 
+return false;
+}]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_9D0A352D-79DD-4296-8E2F-321EF432DFA7" drools:bgcolor="#000000" drools:selectable="true" name="Reject" sourceRef="_A97E408F-1669-42D3-BF7F-B561296267FC" targetRef="_7849AD69-839D-4987-9AC0-263B8FE6FC53">
+      <bpmn2:documentation id="_Im9jaXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9janMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isFalse(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_E252A8D2-FC92-48AD-AF49-A97AE411245B" drools:bgcolor="#000000" drools:selectable="true" name="Reject" sourceRef="_3575E9CC-A7AA-41CE-8C20-7E27F8034035" targetRef="_7849AD69-839D-4987-9AC0-263B8FE6FC53">
+      <bpmn2:documentation id="_Im9ja3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jbHMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.isFalse(approveFlag);]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_E31192E5-3A6D-40D5-8CBC-53AC1B52625E" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Diverging">
+      <bpmn2:documentation id="_Im9jbXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_6B646F31-A9A7-41C0-99B2-DC5729DDE873</bpmn2:incoming>
+      <bpmn2:outgoing>_4A358CC5-E3AE-4E80-859C-842C3E2AB7A8</bpmn2:outgoing>
+      <bpmn2:outgoing>_F392E28B-8E59-4141-B8D7-2CE57C4C11CF</bpmn2:outgoing>
+      <bpmn2:outgoing>_93F18B1C-A661-47F6-9434-CA4C1FC1EEA9</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_8580F0AE-1716-4E2E-A0FA-E4D11E2CB653" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im9jbnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_F2DFB65E-6665-4969-A3C8-E5387919747D</bpmn2:incoming>
+      <bpmn2:incoming>_F392E28B-8E59-4141-B8D7-2CE57C4C11CF</bpmn2:incoming>
+      <bpmn2:outgoing>_8E77A159-5CAD-4272-80D1-E0B229A8B4C8</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_8E77A159-5CAD-4272-80D1-E0B229A8B4C8" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_8580F0AE-1716-4E2E-A0FA-E4D11E2CB653" targetRef="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226">
+      <bpmn2:documentation id="_Im9jb3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_F392E28B-8E59-4141-B8D7-2CE57C4C11CF" drools:bgcolor="#000000" drools:selectable="true" name="1User " sourceRef="_E31192E5-3A6D-40D5-8CBC-53AC1B52625E" targetRef="_8580F0AE-1716-4E2E-A0FA-E4D11E2CB653">
+      <bpmn2:documentation id="_Im9jcHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jcXMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(Approval_By, "1User");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_93F18B1C-A661-47F6-9434-CA4C1FC1EEA9" drools:bgcolor="#000000" drools:selectable="true" name="2User" sourceRef="_E31192E5-3A6D-40D5-8CBC-53AC1B52625E" targetRef="_6D9F453E-DC1B-450B-92F7-4C39986FFDBF">
+      <bpmn2:documentation id="_Im9jcnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jc3MZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(Approval_By, "2User");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_4A358CC5-E3AE-4E80-859C-842C3E2AB7A8" drools:bgcolor="#000000" drools:selectable="true" name="3User" sourceRef="_E31192E5-3A6D-40D5-8CBC-53AC1B52625E" targetRef="_898EC87A-A896-4D5D-9FA6-B918C649B1B5">
+      <bpmn2:documentation id="_Im9jdHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="_Im9jdXMZEeWxGaQjZ7dzUQ" language="http://www.java.com/java"><![CDATA[return  KieFunctions.equalsTo(Approval_By, "3User");]]></bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_6D9F453E-DC1B-450B-92F7-4C39986FFDBF" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im9jdnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_79388A93-E93B-45A7-8AD6-59F4ED6DF53A</bpmn2:incoming>
+      <bpmn2:incoming>_93F18B1C-A661-47F6-9434-CA4C1FC1EEA9</bpmn2:incoming>
+      <bpmn2:outgoing>_0F5EFFB6-21DB-4D1B-8401-E35872416384</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:exclusiveGateway id="_898EC87A-A896-4D5D-9FA6-B918C649B1B5" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im9jd3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_4A358CC5-E3AE-4E80-859C-842C3E2AB7A8</bpmn2:incoming>
+      <bpmn2:incoming>_A7B8A2A3-9C88-4638-9C52-7E1DFC75667E</bpmn2:incoming>
+      <bpmn2:outgoing>_82CA642D-AAC1-428D-A0BA-3B6BA12CBB0D</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_82CA642D-AAC1-428D-A0BA-3B6BA12CBB0D" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_898EC87A-A896-4D5D-9FA6-B918C649B1B5" targetRef="_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F">
+      <bpmn2:documentation id="_Im9jeHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_0F5EFFB6-21DB-4D1B-8401-E35872416384" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_6D9F453E-DC1B-450B-92F7-4C39986FFDBF" targetRef="_E10926CD-6028-4AAD-9453-1CFF60458E0F">
+      <bpmn2:documentation id="_Im9jeXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:exclusiveGateway id="_409C62F6-FF7C-4A6F-8954-0C4B2A6EE62A" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im9jenMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_C2F9048E-DF93-4F3F-A075-C80403EF14F1</bpmn2:incoming>
+      <bpmn2:incoming>_7D32906E-639B-42AE-BC3F-0DB05502F360</bpmn2:incoming>
+      <bpmn2:outgoing>_BB75FF85-4B44-444E-937C-2AAC363FFDE4</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:sequenceFlow id="_BB75FF85-4B44-444E-937C-2AAC363FFDE4" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_409C62F6-FF7C-4A6F-8954-0C4B2A6EE62A" targetRef="_125CEF11-8B33-4524-A9BF-4DDFECE75890">
+      <bpmn2:documentation id="_Im9je3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+    </bpmn2:sequenceFlow>
+    <bpmn2:userTask id="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/Reject Projection in CFF 1st Level">
+      <bpmn2:documentation id="_Im9jfHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_7EE5AB6A-65D1-4C9D-8649-FA8C4618F8E1</bpmn2:incoming>
+      <bpmn2:outgoing>_FDD1F12F-C5C2-474D-875D-3CAA3B95721D</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im9jfXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_TaskNameInputX" name="TaskName"/>
+        <bpmn2:dataInput id="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_GroupIdInputX" drools:dtype="Object" itemSubjectRef="__D9DD9315-7429-4DC7-AA95-1052FEF23AE3_GroupIdInputXItem" name="GroupId"/>
+        <bpmn2:dataInput id="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_SkippableInputX" drools:dtype="Object" itemSubjectRef="__D9DD9315-7429-4DC7-AA95-1052FEF23AE3_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:dataOutput id="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_approveFlagOutputX" drools:dtype="Boolean" itemSubjectRef="__D9DD9315-7429-4DC7-AA95-1052FEF23AE3_approveFlagOutputXItem" name="approveFlag"/>
+        <bpmn2:inputSet id="_Im9jfnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_GroupIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_SkippableInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im9jf3MZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataOutputRefs>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_approveFlagOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im9jgHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jgXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jgnMZEeWxGaQjZ7dzUQ">Approve/RejectProjectioninCFF1stLevel</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jg3MZEeWxGaQjZ7dzUQ">_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jhHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_GroupIdInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jhXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jhnMZEeWxGaQjZ7dzUQ"><![CDATA[Regional Manager 1]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jh3MZEeWxGaQjZ7dzUQ">_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_GroupIdInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jiHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jiXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jinMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9ji3MZEeWxGaQjZ7dzUQ">_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jjHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_D9DD9315-7429-4DC7-AA95-1052FEF23AE3_approveFlagOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>approveFlag</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/Reject Projection in Workflow Inbox">
+      <bpmn2:documentation id="_Im9jjXMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_8E77A159-5CAD-4272-80D1-E0B229A8B4C8</bpmn2:incoming>
+      <bpmn2:outgoing>_657DEFB1-676F-406A-8E7D-3E95329790A2</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im9jjnMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_TaskNameInputX" name="TaskName"/>
+        <bpmn2:dataInput id="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_GroupIdInputX" drools:dtype="Object" itemSubjectRef="__0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_GroupIdInputXItem" name="GroupId"/>
+        <bpmn2:dataInput id="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_SkippableInputX" drools:dtype="Object" itemSubjectRef="__0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:dataOutput id="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_approveFlagOutputX" drools:dtype="Boolean" itemSubjectRef="__0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_approveFlagOutputXItem" name="approveFlag"/>
+        <bpmn2:inputSet id="_Im9jj3MZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_GroupIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_SkippableInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im9jkHMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataOutputRefs>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_approveFlagOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im9jkXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jknMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jk3MZEeWxGaQjZ7dzUQ">Approve/RejectProjectioninWorkflowInbox</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jlHMZEeWxGaQjZ7dzUQ">_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jlXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_GroupIdInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jlnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jl3MZEeWxGaQjZ7dzUQ"><![CDATA[Contract Analyst Heavy Director]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jmHMZEeWxGaQjZ7dzUQ">_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_GroupIdInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jmXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jmnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jm3MZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jnHMZEeWxGaQjZ7dzUQ">_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jnXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226_approveFlagOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>approveFlag</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Create Projection">
+      <bpmn2:documentation id="_Im9jnnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_38FF2437-21EB-4F72-908F-73D0097AFB8F</bpmn2:incoming>
+      <bpmn2:outgoing>_20F4415F-DB5F-470D-BF1D-C7C64A9BFFFA</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im9jn3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_TaskNameInputX" name="TaskName"/>
+        <bpmn2:dataInput id="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_SkippableInputX" drools:dtype="Object" itemSubjectRef="__EC62D2DD-73BE-444A-A106-E5C7BE43AA84_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:dataInput id="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_GroupIdInputX" drools:dtype="Object" itemSubjectRef="__EC62D2DD-73BE-444A-A106-E5C7BE43AA84_GroupIdInputXItem" name="GroupId"/>
+        <bpmn2:dataOutput id="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_projectionIdOutputX" drools:dtype="Integer" itemSubjectRef="__EC62D2DD-73BE-444A-A106-E5C7BE43AA84_projectionIdOutputXItem" name="projectionId"/>
+        <bpmn2:inputSet id="_Im9joHMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_SkippableInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_GroupIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im9joXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataOutputRefs>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_projectionIdOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im9jonMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jo3MZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jpHMZEeWxGaQjZ7dzUQ">CreateProjection</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jpXMZEeWxGaQjZ7dzUQ">_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jpnMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_GroupIdInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jp3MZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jqHMZEeWxGaQjZ7dzUQ"><![CDATA[Contract Analyst Manager]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jqXMZEeWxGaQjZ7dzUQ">_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_GroupIdInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jqnMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jq3MZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jrHMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jrXMZEeWxGaQjZ7dzUQ">_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im9jrnMZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_EC62D2DD-73BE-444A-A106-E5C7BE43AA84_projectionIdOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>projectionId</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Submit Projection">
+      <bpmn2:documentation id="_Im9jr3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_C98CF684-5DBB-4BD6-A9C0-84422F6B1649</bpmn2:incoming>
+      <bpmn2:outgoing>_F2A5B134-8D53-4A68-BAD3-51860650D999</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im9jsHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_TaskNameInputX" name="TaskName"/>
+        <bpmn2:dataInput id="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_GroupIdInputX" drools:dtype="Object" itemSubjectRef="__D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_GroupIdInputXItem" name="GroupId"/>
+        <bpmn2:dataInput id="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_SkippableInputX" drools:dtype="Object" itemSubjectRef="__D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:dataOutput id="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_projectionIdOutputX" drools:dtype="Integer" itemSubjectRef="__D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_projectionIdOutputXItem" name="projectionId"/>
+        <bpmn2:inputSet id="_Im9jsXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_GroupIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_SkippableInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im9jsnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataOutputRefs>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_projectionIdOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im9js3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9jtHMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im9jtXMZEeWxGaQjZ7dzUQ">SubmitProjection</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im9jtnMZEeWxGaQjZ7dzUQ">_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im9jt3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_GroupIdInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im9juHMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KIHMZEeWxGaQjZ7dzUQ"><![CDATA[Contract Analyst Manager]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KIXMZEeWxGaQjZ7dzUQ">_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_GroupIdInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im-KInMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KI3MZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KJHMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KJXMZEeWxGaQjZ7dzUQ">_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="_C4FD5267-CA6E-4495-9996-800B5DB921DD" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" drools:dg="" name="" gatewayDirection="Converging">
+      <bpmn2:documentation id="_Im-KJnMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_20F4415F-DB5F-470D-BF1D-C7C64A9BFFFA</bpmn2:incoming>
+      <bpmn2:incoming>_270CA6D2-D7E0-42AC-99DA-37FC83B7E9E1</bpmn2:incoming>
+      <bpmn2:outgoing>_C98CF684-5DBB-4BD6-A9C0-84422F6B1649</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:userTask id="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/ Reject 2nd level Projection">
+      <bpmn2:documentation id="_Im-KJ3MZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_C6B5ABC9-3CBE-4108-A07F-DD45D56B2B03</bpmn2:incoming>
+      <bpmn2:outgoing>_36E54621-35D1-49DC-90C5-435848264367</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im-KKHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_TaskNameInputX" name="TaskName"/>
+        <bpmn2:dataInput id="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_GroupIdInputX" drools:dtype="Object" itemSubjectRef="__1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_GroupIdInputXItem" name="GroupId"/>
+        <bpmn2:dataInput id="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_SkippableInputX" drools:dtype="Object" itemSubjectRef="__1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:dataOutput id="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_approveFlagOutputX" drools:dtype="Boolean" itemSubjectRef="__1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_approveFlagOutputXItem" name="approveFlag"/>
+        <bpmn2:inputSet id="_Im-KKXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_GroupIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_SkippableInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_TaskNameInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im-KKnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataOutputRefs>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_approveFlagOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im-KK3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_TaskNameInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KLHMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KLXMZEeWxGaQjZ7dzUQ">Approve/RejectProjectioninCFF2ndLevel</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KLnMZEeWxGaQjZ7dzUQ">_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_TaskNameInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im-KL3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_GroupIdInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KMHMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KMXMZEeWxGaQjZ7dzUQ"><![CDATA[Regional Manager 2]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KMnMZEeWxGaQjZ7dzUQ">_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_GroupIdInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_Im-KM3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KNHMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KNXMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KNnMZEeWxGaQjZ7dzUQ">_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_Im-KN3MZEeWxGaQjZ7dzUQ">
+        <bpmn2:sourceRef>_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE_approveFlagOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>approveFlag</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_A0DD3978-B492-4B2C-B274-0E19B0D1EF92" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/Reject Projection in Workflow Inbox">
+      <bpmn2:documentation id="_Im-KOHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_539293F0-96BE-45ED-94E7-86EEAD3CEC84</bpmn2:incoming>
+      <bpmn2:outgoing>_851128C6-0C0B-4478-A53A-26A389CDB117</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im-KOXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_A0DD3978-B492-4B2C-B274-0E19B0D1EF92_SkippableInputX" drools:dtype="Object" itemSubjectRef="__A0DD3978-B492-4B2C-B274-0E19B0D1EF92_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet id="_Im-KOnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_A0DD3978-B492-4B2C-B274-0E19B0D1EF92_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im-KO3MZEeWxGaQjZ7dzUQ"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im-KPHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_A0DD3978-B492-4B2C-B274-0E19B0D1EF92_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KPXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KPnMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KP3MZEeWxGaQjZ7dzUQ">_A0DD3978-B492-4B2C-B274-0E19B0D1EF92_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/Reject Projection in Workflow Inbox">
+      <bpmn2:documentation id="_Im-KQHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_82CA642D-AAC1-428D-A0BA-3B6BA12CBB0D</bpmn2:incoming>
+      <bpmn2:outgoing>_A064F147-B086-4C07-9070-7382A895A3F1</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im-KQXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F_SkippableInputX" drools:dtype="Object" itemSubjectRef="__2A7735C1-859C-47C3-BC2E-B7BA5263AA9F_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet id="_Im-KQnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im-KQ3MZEeWxGaQjZ7dzUQ"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im-KRHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KRXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KRnMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KR3MZEeWxGaQjZ7dzUQ">_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_EA17F1C7-E837-4D82-A0E4-A2E556DE1897" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/Reject Projection in Workflow Inbox">
+      <bpmn2:documentation id="_Im-KSHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_B92B55F0-A193-49E3-A9E2-9C1501D6BCDD</bpmn2:incoming>
+      <bpmn2:outgoing>_AFA52EA5-500D-498B-8B2A-416790AE3D6D</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im-KSXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_EA17F1C7-E837-4D82-A0E4-A2E556DE1897_SkippableInputX" drools:dtype="Object" itemSubjectRef="__EA17F1C7-E837-4D82-A0E4-A2E556DE1897_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet id="_Im-KSnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_EA17F1C7-E837-4D82-A0E4-A2E556DE1897_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im-KS3MZEeWxGaQjZ7dzUQ"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im-KTHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_EA17F1C7-E837-4D82-A0E4-A2E556DE1897_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KTXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KTnMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KT3MZEeWxGaQjZ7dzUQ">_EA17F1C7-E837-4D82-A0E4-A2E556DE1897_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_E10926CD-6028-4AAD-9453-1CFF60458E0F" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/Reject Projection in Workflow Inbox">
+      <bpmn2:documentation id="_Im-KUHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_0F5EFFB6-21DB-4D1B-8401-E35872416384</bpmn2:incoming>
+      <bpmn2:outgoing>_6FDB8164-EF0D-41C0-9FD0-4EBF60C61444</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im-KUXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_E10926CD-6028-4AAD-9453-1CFF60458E0F_SkippableInputX" drools:dtype="Object" itemSubjectRef="__E10926CD-6028-4AAD-9453-1CFF60458E0F_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet id="_Im-KUnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_E10926CD-6028-4AAD-9453-1CFF60458E0F_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im-KU3MZEeWxGaQjZ7dzUQ"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im-KVHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_E10926CD-6028-4AAD-9453-1CFF60458E0F_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KVXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KVnMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KV3MZEeWxGaQjZ7dzUQ">_E10926CD-6028-4AAD-9453-1CFF60458E0F_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_125CEF11-8B33-4524-A9BF-4DDFECE75890" drools:selectable="true" drools:scriptFormat="http://www.java.com/java" name="Approve/Reject Projection in Workflow Inbox">
+      <bpmn2:documentation id="_Im-KWHMZEeWxGaQjZ7dzUQ"><![CDATA[\n\n\n\nSystem.out.println("Workflow Auto_Approval process :"+Auto_Approval);\n\n\nif(Auto_Approval!=null && Auto_Approval){\n  kcontext.setVariable("errorFlag","false");\n return true; \n}else{\n  return false; \n}\n// forApprove variable shld return true \n\n//  AutoApprove variable should return true\n//return  Net_Sales == null ? false : !Net_Sales.isFor_Approve();]]></bpmn2:documentation>
+      <bpmn2:incoming>_BB75FF85-4B44-444E-937C-2AAC363FFDE4</bpmn2:incoming>
+      <bpmn2:outgoing>_F6D79432-8ADA-458B-8039-13BDAF75BC57</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="_Im-KWXMZEeWxGaQjZ7dzUQ">
+        <bpmn2:dataInput id="_125CEF11-8B33-4524-A9BF-4DDFECE75890_SkippableInputX" drools:dtype="Object" itemSubjectRef="__125CEF11-8B33-4524-A9BF-4DDFECE75890_SkippableInputXItem" name="Skippable"/>
+        <bpmn2:inputSet id="_Im-KWnMZEeWxGaQjZ7dzUQ">
+          <bpmn2:dataInputRefs>_125CEF11-8B33-4524-A9BF-4DDFECE75890_SkippableInputX</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="_Im-KW3MZEeWxGaQjZ7dzUQ"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_Im-KXHMZEeWxGaQjZ7dzUQ">
+        <bpmn2:targetRef>_125CEF11-8B33-4524-A9BF-4DDFECE75890_SkippableInputX</bpmn2:targetRef>
+        <bpmn2:assignment id="_Im-KXXMZEeWxGaQjZ7dzUQ">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_Im-KXnMZEeWxGaQjZ7dzUQ">true</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_Im-KX3MZEeWxGaQjZ7dzUQ">_125CEF11-8B33-4524-A9BF-4DDFECE75890_SkippableInputX</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:userTask>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="_Im-KYHMZEeWxGaQjZ7dzUQ">
+    <bpmndi:BPMNPlane id="_Im-KYXMZEeWxGaQjZ7dzUQ" bpmnElement="Test_Workflow.SubmissionWorkflow">
+      <bpmndi:BPMNShape id="_Im-KYnMZEeWxGaQjZ7dzUQ" bpmnElement="_A895D4DB-9891-4007-9E14-A6DA764DF3FC">
+        <dc:Bounds height="30.0" width="30.0" x="45.0" y="467.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KY3MZEeWxGaQjZ7dzUQ" bpmnElement="_38FF2437-21EB-4F72-908F-73D0097AFB8F">
+        <di:waypoint xsi:type="dc:Point" x="255.0" y="924.0"/>
+        <di:waypoint xsi:type="dc:Point" x="92.0" y="77.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KZHMZEeWxGaQjZ7dzUQ" bpmnElement="_20F4415F-DB5F-470D-BF1D-C7C64A9BFFFA">
+        <di:waypoint xsi:type="dc:Point" x="636.0" y="981.0"/>
+        <di:waypoint xsi:type="dc:Point" x="216.0" y="77.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KZXMZEeWxGaQjZ7dzUQ" bpmnElement="_C98CF684-5DBB-4BD6-A9C0-84422F6B1649">
+        <di:waypoint xsi:type="dc:Point" x="1000.0" y="981.0"/>
+        <di:waypoint xsi:type="dc:Point" x="332.0" y="77.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KZnMZEeWxGaQjZ7dzUQ" bpmnElement="_E342EF65-2EE9-4EF4-8A1A-C7FA0C73F7B2">
+        <dc:Bounds height="40.0" width="40.0" x="1260.0" y="458.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KZ3MZEeWxGaQjZ7dzUQ" bpmnElement="_05F0A5B3-5F05-40F5-80CA-6F7B7E3BB145">
+        <di:waypoint xsi:type="dc:Point" x="1115.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1280.0" y="478.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KaHMZEeWxGaQjZ7dzUQ" bpmnElement="_24CEABBB-2BB1-4C56-85F4-AC94CA7F4DC8">
+        <dc:Bounds height="40.0" width="40.0" x="2985.0" y="670.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KaXMZEeWxGaQjZ7dzUQ" bpmnElement="_657DEFB1-676F-406A-8E7D-3E95329790A2">
+        <di:waypoint xsi:type="dc:Point" x="1918.5" y="704.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2515.0" y="687.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="690.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KanMZEeWxGaQjZ7dzUQ" bpmnElement="_E6FC689F-AF86-4138-9613-75DFEF948DA0">
+        <dc:Bounds height="40.0" width="40.0" x="3705.0" y="420.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-Ka3MZEeWxGaQjZ7dzUQ" bpmnElement="_FDD1F12F-C5C2-474D-875D-3CAA3B95721D">
+        <di:waypoint xsi:type="dc:Point" x="3526.0" y="469.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3725.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KbHMZEeWxGaQjZ7dzUQ" bpmnElement="_835811DF-40DC-4C76-807B-CBBE21E515DD">
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="690.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KbXMZEeWxGaQjZ7dzUQ" bpmnElement="_47A5FE3D-5E18-44E6-8633-225F7B65DD59">
+        <dc:Bounds height="28.0" width="28.0" x="4665.0" y="426.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KbnMZEeWxGaQjZ7dzUQ" bpmnElement="_7E85908D-52D5-46B2-A3D0-C9E72B178FCA">
+        <di:waypoint xsi:type="dc:Point" x="4445.0" y="439.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4679.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Kb3MZEeWxGaQjZ7dzUQ" bpmnElement="_270CA6D2-D7E0-42AC-99DA-37FC83B7E9E1">
+        <di:waypoint xsi:type="dc:Point" x="2304.0" y="1352.0"/>
+        <di:waypoint xsi:type="dc:Point" x="369.0" y="890.0"/>
+        <di:waypoint xsi:type="dc:Point" x="216.0" y="77.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KcHMZEeWxGaQjZ7dzUQ" bpmnElement="_1F644F4C-78D3-4808-B0AC-174ED32D1EA6">
+        <dc:Bounds height="80.0" width="100.0" x="4395.0" y="399.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KcXMZEeWxGaQjZ7dzUQ" bpmnElement="_F2DFB65E-6665-4969-A3C8-E5387919747D">
+        <di:waypoint xsi:type="dc:Point" x="1520.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1592.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1592.0" y="690.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="690.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KcnMZEeWxGaQjZ7dzUQ" bpmnElement="_6B646F31-A9A7-41C0-99B2-DC5729DDE873">
+        <di:waypoint xsi:type="dc:Point" x="3725.0" y="440.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3725.0" y="980.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2660.0" y="980.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Kc3MZEeWxGaQjZ7dzUQ" bpmnElement="_C6B5ABC9-3CBE-4108-A07F-DD45D56B2B03">
+        <di:waypoint xsi:type="dc:Point" x="7625.0" y="840.0"/>
+        <di:waypoint xsi:type="dc:Point" x="95.0" y="63.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KdHMZEeWxGaQjZ7dzUQ" bpmnElement="_00C25403-2E4A-4012-B050-29F3592E512A">
+        <dc:Bounds height="40.0" width="40.0" x="4215.0" y="420.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KdXMZEeWxGaQjZ7dzUQ" bpmnElement="_36E54621-35D1-49DC-90C5-435848264367">
+        <di:waypoint xsi:type="dc:Point" x="3995.0" y="463.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4235.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KdnMZEeWxGaQjZ7dzUQ" bpmnElement="_69FAF235-319B-4C5B-BA40-698CDB2ACE82">
+        <di:waypoint xsi:type="dc:Point" x="4235.0" y="440.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4445.0" y="439.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Kd3MZEeWxGaQjZ7dzUQ" bpmnElement="_55B220DB-1EFE-49FB-AB5F-84AEA2BA1BA4">
+        <di:waypoint xsi:type="dc:Point" x="4235.0" y="440.0"/>
+        <di:waypoint xsi:type="dc:Point" x="4235.0" y="596.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="596.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KeHMZEeWxGaQjZ7dzUQ" bpmnElement="_E1D1657A-6800-43D0-8722-8B16A8B1F719">
+        <dc:Bounds height="40.0" width="40.0" x="1500.0" y="458.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KeXMZEeWxGaQjZ7dzUQ" bpmnElement="_60B2CA27-3271-43CD-AC4F-4104437A613E">
+        <dc:Bounds height="40.0" width="40.0" x="3210.0" y="420.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KenMZEeWxGaQjZ7dzUQ" bpmnElement="_7EE5AB6A-65D1-4C9D-8649-FA8C4618F8E1">
+        <di:waypoint xsi:type="dc:Point" x="6674.0" y="839.0"/>
+        <di:waypoint xsi:type="dc:Point" x="82.0" y="70.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-Ke3MZEeWxGaQjZ7dzUQ" bpmnElement="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA">
+        <dc:Bounds height="80.0" width="100.0" x="870.0" y="438.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KfHMZEeWxGaQjZ7dzUQ" bpmnElement="_A28251C3-C97C-452F-8A05-CCAAE93DC517">
+        <di:waypoint xsi:type="dc:Point" x="710.0" y="482.0"/>
+        <di:waypoint xsi:type="dc:Point" x="815.0" y="482.0"/>
+        <di:waypoint xsi:type="dc:Point" x="815.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="920.0" y="478.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KfXMZEeWxGaQjZ7dzUQ" bpmnElement="_3DBE5B1A-72FE-40D0-BD30-DCBA266A98F3">
+        <di:waypoint xsi:type="dc:Point" x="920.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1115.0" y="478.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KfnMZEeWxGaQjZ7dzUQ" bpmnElement="_E0F53F65-7443-4D7B-AC84-8832C5596AAC">
+        <di:waypoint xsi:type="dc:Point" x="1280.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1520.0" y="478.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Kf3MZEeWxGaQjZ7dzUQ" bpmnElement="_E193EF59-B6C8-413D-BDC9-45349BB82A48">
+        <di:waypoint xsi:type="dc:Point" x="1280.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1280.0" y="113.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="113.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KgHMZEeWxGaQjZ7dzUQ" bpmnElement="_F3AB53B1-A577-4490-8857-A063C834CB32">
+        <dc:Bounds height="80.0" width="100.0" x="660.0" y="442.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KgXMZEeWxGaQjZ7dzUQ" bpmnElement="_F2A5B134-8D53-4A68-BAD3-51860650D999">
+        <di:waypoint xsi:type="dc:Point" x="767.0" y="519.0"/>
+        <di:waypoint xsi:type="dc:Point" x="710.0" y="482.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KgnMZEeWxGaQjZ7dzUQ" bpmnElement="_50822C1F-911F-48BD-A693-107105EAF6A1">
+        <dc:Bounds height="80.0" width="100.0" x="1065.0" y="438.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-Kg3MZEeWxGaQjZ7dzUQ" bpmnElement="_3575E9CC-A7AA-41CE-8C20-7E27F8034035">
+        <dc:Bounds height="40.0" width="40.0" x="2100.0" y="280.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KhHMZEeWxGaQjZ7dzUQ" bpmnElement="_9DFFB77B-CE53-4D61-847D-1B29ED601164">
+        <dc:Bounds height="40.0" width="40.0" x="2535.0" y="281.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KhXMZEeWxGaQjZ7dzUQ" bpmnElement="_15A973D8-2D1D-4F7B-8218-78506E88E8BD">
+        <dc:Bounds height="40.0" width="40.0" x="2985.0" y="281.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KhnMZEeWxGaQjZ7dzUQ" bpmnElement="_7D32906E-639B-42AE-BC3F-0DB05502F360">
+        <di:waypoint xsi:type="dc:Point" x="2120.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2225.0" y="299.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Kh3MZEeWxGaQjZ7dzUQ" bpmnElement="_A7B8A2A3-9C88-4638-9C52-7E1DFC75667E">
+        <di:waypoint xsi:type="dc:Point" x="2555.0" y="301.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2660.0" y="301.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KiHMZEeWxGaQjZ7dzUQ" bpmnElement="_F6D79432-8ADA-458B-8039-13BDAF75BC57">
+        <di:waypoint xsi:type="dc:Point" x="2447.0" y="318.5"/>
+        <di:waypoint xsi:type="dc:Point" x="2490.0" y="299.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2490.0" y="301.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2555.0" y="301.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KiXMZEeWxGaQjZ7dzUQ" bpmnElement="_851128C6-0C0B-4478-A53A-26A389CDB117">
+        <di:waypoint xsi:type="dc:Point" x="1952.0" y="321.5"/>
+        <di:waypoint xsi:type="dc:Point" x="2025.0" y="299.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2025.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2120.0" y="300.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KinMZEeWxGaQjZ7dzUQ" bpmnElement="_A064F147-B086-4C07-9070-7382A895A3F1">
+        <di:waypoint xsi:type="dc:Point" x="2867.0" y="323.5"/>
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="301.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Ki3MZEeWxGaQjZ7dzUQ" bpmnElement="_A660F573-D1C3-4F51-8062-DD2585A04A2D">
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="301.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KjHMZEeWxGaQjZ7dzUQ" bpmnElement="_C2F9048E-DF93-4F3F-A075-C80403EF14F1">
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="301.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="148.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2225.0" y="148.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2225.0" y="299.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KjXMZEeWxGaQjZ7dzUQ" bpmnElement="_0B6BC622-D666-44B9-BCF7-95C41DFC4880">
+        <dc:Bounds height="40.0" width="40.0" x="1635.0" y="280.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KjnMZEeWxGaQjZ7dzUQ" bpmnElement="_8035C187-0D75-4193-AB50-1780B1132DF1">
+        <di:waypoint xsi:type="dc:Point" x="1520.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1592.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1592.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="300.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Kj3MZEeWxGaQjZ7dzUQ" bpmnElement="_539293F0-96BE-45ED-94E7-86EEAD3CEC84">
+        <di:waypoint xsi:type="dc:Point" x="3496.0" y="559.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1758.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1758.0" y="299.0"/>
+        <di:waypoint xsi:type="dc:Point" x="111.0" y="62.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KkHMZEeWxGaQjZ7dzUQ" bpmnElement="_A3764D2E-12D8-41D2-B1A4-AC07D0AE9948">
+        <di:waypoint xsi:type="dc:Point" x="2555.0" y="301.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2555.0" y="223.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="223.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="300.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KkXMZEeWxGaQjZ7dzUQ" bpmnElement="_D80C8999-985D-4011-81F0-65420BB0C3F1">
+        <dc:Bounds height="40.0" width="40.0" x="1635.0" y="459.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KknMZEeWxGaQjZ7dzUQ" bpmnElement="_A97E408F-1669-42D3-BF7F-B561296267FC">
+        <dc:Bounds height="40.0" width="40.0" x="2025.0" y="458.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-Kk3MZEeWxGaQjZ7dzUQ" bpmnElement="_7C92DD32-9E4D-4927-B3DD-C64609B82EC3">
+        <dc:Bounds height="40.0" width="40.0" x="2985.0" y="459.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KlHMZEeWxGaQjZ7dzUQ" bpmnElement="_B92B55F0-A193-49E3-A9E2-9C1501D6BCDD">
+        <di:waypoint xsi:type="dc:Point" x="3496.0" y="916.0"/>
+        <di:waypoint xsi:type="dc:Point" x="111.0" y="62.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KlXMZEeWxGaQjZ7dzUQ" bpmnElement="_AFA52EA5-500D-498B-8B2A-416790AE3D6D">
+        <di:waypoint xsi:type="dc:Point" x="1952.0" y="499.5"/>
+        <di:waypoint xsi:type="dc:Point" x="2045.0" y="478.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KlnMZEeWxGaQjZ7dzUQ" bpmnElement="_79388A93-E93B-45A7-8AD6-59F4ED6DF53A">
+        <di:waypoint xsi:type="dc:Point" x="2045.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2225.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Kl3MZEeWxGaQjZ7dzUQ" bpmnElement="_6FDB8164-EF0D-41C0-9FD0-4EBF60C61444">
+        <di:waypoint xsi:type="dc:Point" x="2447.0" y="499.5"/>
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KmHMZEeWxGaQjZ7dzUQ" bpmnElement="_65BEED28-7EDB-4421-A0DB-6A0F5CF61949">
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="479.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3230.0" y="440.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KmXMZEeWxGaQjZ7dzUQ" bpmnElement="_B79F1494-AB76-4052-A9A8-B8028563FF3F">
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="479.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="397.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="397.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KmnMZEeWxGaQjZ7dzUQ" bpmnElement="_EDAAC55F-E163-43A0-A891-B5A56E94A27B">
+        <di:waypoint xsi:type="dc:Point" x="1520.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-Km3MZEeWxGaQjZ7dzUQ" bpmnElement="_7849AD69-839D-4987-9AC0-263B8FE6FC53">
+        <dc:Bounds height="40.0" width="40.0" x="1935.0" y="870.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KnHMZEeWxGaQjZ7dzUQ" bpmnElement="_D21C9B09-EAD2-4D6E-8F65-5D31FCA00554">
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="690.0"/>
+        <di:waypoint xsi:type="dc:Point" x="3005.0" y="890.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1955.0" y="890.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KnXMZEeWxGaQjZ7dzUQ" bpmnElement="_9D0A352D-79DD-4296-8E2F-321EF432DFA7">
+        <di:waypoint xsi:type="dc:Point" x="2045.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2045.0" y="890.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1955.0" y="890.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KnnMZEeWxGaQjZ7dzUQ" bpmnElement="_E252A8D2-FC92-48AD-AF49-A97AE411245B">
+        <di:waypoint xsi:type="dc:Point" x="2120.0" y="300.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2120.0" y="890.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1955.0" y="890.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-Kn3MZEeWxGaQjZ7dzUQ" bpmnElement="_E31192E5-3A6D-40D5-8CBC-53AC1B52625E">
+        <dc:Bounds height="40.0" width="40.0" x="2640.0" y="960.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KoHMZEeWxGaQjZ7dzUQ" bpmnElement="_8580F0AE-1716-4E2E-A0FA-E4D11E2CB653">
+        <dc:Bounds height="40.0" width="40.0" x="1635.0" y="670.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KoXMZEeWxGaQjZ7dzUQ" bpmnElement="_8E77A159-5CAD-4272-80D1-E0B229A8B4C8">
+        <di:waypoint xsi:type="dc:Point" x="3481.0" y="1337.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1750.0" y="690.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1750.0" y="687.0"/>
+        <di:waypoint xsi:type="dc:Point" x="92.5" y="57.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KonMZEeWxGaQjZ7dzUQ" bpmnElement="_F392E28B-8E59-4141-B8D7-2CE57C4C11CF">
+        <di:waypoint xsi:type="dc:Point" x="2660.0" y="980.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2660.0" y="1070.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="1070.0"/>
+        <di:waypoint xsi:type="dc:Point" x="1655.0" y="690.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-Ko3MZEeWxGaQjZ7dzUQ" bpmnElement="_93F18B1C-A661-47F6-9434-CA4C1FC1EEA9">
+        <di:waypoint xsi:type="dc:Point" x="2660.0" y="980.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2225.0" y="980.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2225.0" y="479.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KpHMZEeWxGaQjZ7dzUQ" bpmnElement="_4A358CC5-E3AE-4E80-859C-842C3E2AB7A8">
+        <di:waypoint xsi:type="dc:Point" x="2660.0" y="980.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2660.0" y="301.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KpXMZEeWxGaQjZ7dzUQ" bpmnElement="_6D9F453E-DC1B-450B-92F7-4C39986FFDBF">
+        <dc:Bounds height="40.0" width="40.0" x="2205.0" y="459.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KpnMZEeWxGaQjZ7dzUQ" bpmnElement="_898EC87A-A896-4D5D-9FA6-B918C649B1B5">
+        <dc:Bounds height="40.0" width="40.0" x="2640.0" y="281.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-Kp3MZEeWxGaQjZ7dzUQ" bpmnElement="_82CA642D-AAC1-428D-A0BA-3B6BA12CBB0D">
+        <di:waypoint xsi:type="dc:Point" x="5416.0" y="561.0"/>
+        <di:waypoint xsi:type="dc:Point" x="111.0" y="63.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="_Im-KqHMZEeWxGaQjZ7dzUQ" bpmnElement="_0F5EFFB6-21DB-4D1B-8401-E35872416384">
+        <di:waypoint xsi:type="dc:Point" x="4561.0" y="916.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2290.0" y="479.0"/>
+        <di:waypoint xsi:type="dc:Point" x="2290.0" y="478.0"/>
+        <di:waypoint xsi:type="dc:Point" x="111.0" y="62.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-KqXMZEeWxGaQjZ7dzUQ" bpmnElement="_409C62F6-FF7C-4A6F-8954-0C4B2A6EE62A">
+        <dc:Bounds height="40.0" width="40.0" x="2205.0" y="279.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="_Im-KqnMZEeWxGaQjZ7dzUQ" bpmnElement="_BB75FF85-4B44-444E-937C-2AAC363FFDE4">
+        <di:waypoint xsi:type="dc:Point" x="4561.0" y="557.0"/>
+        <di:waypoint xsi:type="dc:Point" x="111.0" y="60.5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_Im-Kq3MZEeWxGaQjZ7dzUQ" bpmnElement="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3">
+        <dc:Bounds height="80.0" width="116.0" x="3444.0" y="399.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KrHMZEeWxGaQjZ7dzUQ" bpmnElement="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226">
+        <dc:Bounds height="80.0" width="125.0" x="1826.0" y="647.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KrXMZEeWxGaQjZ7dzUQ" bpmnElement="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84">
+        <dc:Bounds height="80.0" width="100.0" x="195.0" y="442.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KrnMZEeWxGaQjZ7dzUQ" bpmnElement="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081">
+        <dc:Bounds height="80.0" width="100.0" x="435.0" y="442.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-Kr3MZEeWxGaQjZ7dzUQ" bpmnElement="_C4FD5267-CA6E-4495-9996-800B5DB921DD">
+        <dc:Bounds height="40.0" width="40.0" x="349.0" y="462.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KsHMZEeWxGaQjZ7dzUQ" bpmnElement="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE">
+        <dc:Bounds height="80.0" width="100.0" x="3900.0" y="400.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KsXMZEeWxGaQjZ7dzUQ" bpmnElement="_A0DD3978-B492-4B2C-B274-0E19B0D1EF92">
+        <dc:Bounds height="83.0" width="110.0" x="1841.0" y="259.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KsnMZEeWxGaQjZ7dzUQ" bpmnElement="_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F">
+        <dc:Bounds height="83.0" width="110.0" x="2756.0" y="260.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-Ks3MZEeWxGaQjZ7dzUQ" bpmnElement="_EA17F1C7-E837-4D82-A0E4-A2E556DE1897">
+        <dc:Bounds height="83.0" width="110.0" x="1841.0" y="437.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KtHMZEeWxGaQjZ7dzUQ" bpmnElement="_E10926CD-6028-4AAD-9453-1CFF60458E0F">
+        <dc:Bounds height="83.0" width="110.0" x="2336.0" y="437.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KtXMZEeWxGaQjZ7dzUQ" bpmnElement="_125CEF11-8B33-4524-A9BF-4DDFECE75890">
+        <dc:Bounds height="83.0" width="110.0" x="2336.0" y="258.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KtnMZEeWxGaQjZ7dzUQ" bpmnElement="_CF03760C-BF10-404A-B272-FE6D8B4CAB04">
+        <dc:Bounds height="141.0" width="164.0" x="3420.0" y="369.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-Kt3MZEeWxGaQjZ7dzUQ" bpmnElement="_070842AA-631D-416C-9CA1-2D03CE0A9F2C">
+        <dc:Bounds height="124.0" width="199.0" x="1796.0" y="630.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KuHMZEeWxGaQjZ7dzUQ" bpmnElement="_0D5D4F30-656D-4C68-95BB-14139110D6B5">
+        <dc:Bounds height="168.0" width="432.0" x="153.0" y="405.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KuXMZEeWxGaQjZ7dzUQ" bpmnElement="_10322A0D-F0D4-4C88-B7AE-E4285898CDBB">
+        <dc:Bounds height="126.0" width="191.0" x="3855.0" y="377.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KunMZEeWxGaQjZ7dzUQ" bpmnElement="_DDF9D3B6-43B2-40F3-AFC1-7D90A33BC85E">
+        <dc:Bounds height="125.0" width="212.0" x="1785.0" y="238.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-Ku3MZEeWxGaQjZ7dzUQ" bpmnElement="_54C8ECDE-8B38-49EF-A027-18F72C1B5A43">
+        <dc:Bounds height="125.0" width="212.0" x="2700.0" y="238.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KvHMZEeWxGaQjZ7dzUQ" bpmnElement="_10D3FC36-BBE0-4F08-A195-65D8C7D8752C">
+        <dc:Bounds height="125.0" width="212.0" x="1785.0" y="416.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KvXMZEeWxGaQjZ7dzUQ" bpmnElement="_EBC2894A-1473-4AB0-8E76-62C72FAA61C2">
+        <dc:Bounds height="125.0" width="212.0" x="2280.0" y="416.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="_Im-KvnMZEeWxGaQjZ7dzUQ" bpmnElement="_78A01E5E-1C2A-418A-A4D3-0119B8B39662">
+        <dc:Bounds height="125.0" width="212.0" x="2280.0" y="239.0"/>
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+  <bpmn2:relationship id="_Im-Kv3MZEeWxGaQjZ7dzUQ" type="BPSimData">
+    <bpmn2:extensionElements>
+      <bpsim:BPSimData>
+        <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
+          <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters" baseTimeUnit="min"/>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_7E85908D-52D5-46B2-A3D0-C9E72B178FCA" id="_Im-KwHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_7EE5AB6A-65D1-4C9D-8649-FA8C4618F8E1" id="_Im-KwXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_65BEED28-7EDB-4421-A0DB-6A0F5CF61949" id="_Im-KwnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_EA17F1C7-E837-4D82-A0E4-A2E556DE1897" id="_Im-Kw3MZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_47A5FE3D-5E18-44E6-8633-225F7B65DD59" id="_Im-KxHMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_539293F0-96BE-45ED-94E7-86EEAD3CEC84" id="_Im-KxXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A064F147-B086-4C07-9070-7382A895A3F1" id="_Im-KxnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_93F18B1C-A661-47F6-9434-CA4C1FC1EEA9" id="_Im-Kx3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E0F53F65-7443-4D7B-AC84-8832C5596AAC" id="_Im-KyHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_20F4415F-DB5F-470D-BF1D-C7C64A9BFFFA" id="_Im-KyXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_6B646F31-A9A7-41C0-99B2-DC5729DDE873" id="_Im-KynMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_36E54621-35D1-49DC-90C5-435848264367" id="_Im-Ky3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C2F9048E-DF93-4F3F-A075-C80403EF14F1" id="_Im-KzHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_7D32906E-639B-42AE-BC3F-0DB05502F360" id="_Im-KzXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_69FAF235-319B-4C5B-BA40-698CDB2ACE82" id="_Im-KznMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_F6D79432-8ADA-458B-8039-13BDAF75BC57" id="_Im-Kz3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E252A8D2-FC92-48AD-AF49-A97AE411245B" id="_Im-K0HMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_4A358CC5-E3AE-4E80-859C-842C3E2AB7A8" id="_Im-K0XMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A7B8A2A3-9C88-4638-9C52-7E1DFC75667E" id="_Im-K0nMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_BB75FF85-4B44-444E-937C-2AAC363FFDE4" id="_Im-K03MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_D9DD9315-7429-4DC7-AA95-1052FEF23AE3" id="_Im-K1HMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_FDD1F12F-C5C2-474D-875D-3CAA3B95721D" id="_Im-xMHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_82CA642D-AAC1-428D-A0BA-3B6BA12CBB0D" id="_Im-xMXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_EC62D2DD-73BE-444A-A106-E5C7BE43AA84" id="_Im-xMnMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C98CF684-5DBB-4BD6-A9C0-84422F6B1649" id="_Im-xM3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_F392E28B-8E59-4141-B8D7-2CE57C4C11CF" id="_Im-xNHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_38FF2437-21EB-4F72-908F-73D0097AFB8F" id="_Im-xNXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_55B220DB-1EFE-49FB-AB5F-84AEA2BA1BA4" id="_Im-xNnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_EDAAC55F-E163-43A0-A891-B5A56E94A27B" id="_Im-xN3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_125CEF11-8B33-4524-A9BF-4DDFECE75890" id="_Im-xOHMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_F2A5B134-8D53-4A68-BAD3-51860650D999" id="_Im-xOXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_B92B55F0-A193-49E3-A9E2-9C1501D6BCDD" id="_Im-xOnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A0DD3978-B492-4B2C-B274-0E19B0D1EF92" id="_Im-xO3MZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_F3AB53B1-A577-4490-8857-A063C834CB32" id="_Im-xPHMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_05F0A5B3-5F05-40F5-80CA-6F7B7E3BB145" id="_Im-xPXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_9D0A352D-79DD-4296-8E2F-321EF432DFA7" id="_Im-xPnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_2A7735C1-859C-47C3-BC2E-B7BA5263AA9F" id="_Im-xP3MZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_3DBE5B1A-72FE-40D0-BD30-DCBA266A98F3" id="_Im-xQHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_657DEFB1-676F-406A-8E7D-3E95329790A2" id="_Im-xQXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A660F573-D1C3-4F51-8062-DD2585A04A2D" id="_Im-xQnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_0CFBBA26-6DDC-4F56-90B2-3FC16A48D226" id="_Im-xQ3MZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_79388A93-E93B-45A7-8AD6-59F4ED6DF53A" id="_Im-xRHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_6FDB8164-EF0D-41C0-9FD0-4EBF60C61444" id="_Im-xRXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A895D4DB-9891-4007-9E14-A6DA764DF3FC" id="_Im-xRnMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_50822C1F-911F-48BD-A693-107105EAF6A1" id="_Im-xR3MZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_F2DFB65E-6665-4969-A3C8-E5387919747D" id="_Im-xSHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_AFA52EA5-500D-498B-8B2A-416790AE3D6D" id="_Im-xSXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_1A8C16AD-7065-4B91-BB83-AB5DDBF637EE" id="_Im-xSnMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_8E77A159-5CAD-4272-80D1-E0B229A8B4C8" id="_Im-xS3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A3764D2E-12D8-41D2-B1A4-AC07D0AE9948" id="_Im-xTHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_0F5EFFB6-21DB-4D1B-8401-E35872416384" id="_Im-xTXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_1F644F4C-78D3-4808-B0AC-174ED32D1EA6" id="_Im-xTnMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E193EF59-B6C8-413D-BDC9-45349BB82A48" id="_Im-xT3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_C6B5ABC9-3CBE-4108-A07F-DD45D56B2B03" id="_Im-xUHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_A28251C3-C97C-452F-8A05-CCAAE93DC517" id="_Im-xUXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_8035C187-0D75-4193-AB50-1780B1132DF1" id="_Im-xUnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_7A1DC1AE-BB6B-4F6A-B73D-748B05C31FFA" id="_Im-xU3MZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_D21C9B09-EAD2-4D6E-8F65-5D31FCA00554" id="_Im-xVHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_851128C6-0C0B-4478-A53A-26A389CDB117" id="_Im-xVXMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_B79F1494-AB76-4052-A9A8-B8028563FF3F" id="_Im-xVnMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_270CA6D2-D7E0-42AC-99DA-37FC83B7E9E1" id="_Im-xV3MZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_835811DF-40DC-4C76-807B-CBBE21E515DD" id="_Im-xWHMZEeWxGaQjZ7dzUQ">
+            <bpsim:ControlParameters xsi:type="bpsim:ControlParameters">
+              <bpsim:Probability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="100.0"/>
+              </bpsim:Probability>
+            </bpsim:ControlParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_E10926CD-6028-4AAD-9453-1CFF60458E0F" id="_Im-xWXMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_D4FC0A99-CBE8-4AE2-83C0-C8640E9C3081" id="_Im-xWnMZEeWxGaQjZ7dzUQ">
+            <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
+              <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
+                <bpsim:UniformDistribution max="10.0" min="5.0"/>
+              </bpsim:ProcessingTime>
+            </bpsim:TimeParameters>
+            <bpsim:ResourceParameters xsi:type="bpsim:ResourceParameters">
+              <bpsim:Availability xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="8.0"/>
+              </bpsim:Availability>
+              <bpsim:Quantity xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="1.0"/>
+              </bpsim:Quantity>
+            </bpsim:ResourceParameters>
+            <bpsim:CostParameters xsi:type="bpsim:CostParameters">
+              <bpsim:UnitCost xsi:type="bpsim:Parameter">
+                <bpsim:FloatingParameter value="0.0"/>
+              </bpsim:UnitCost>
+            </bpsim:CostParameters>
+          </bpsim:ElementParameters>
+        </bpsim:Scenario>
+      </bpsim:BPSimData>
+    </bpmn2:extensionElements>
+    <bpmn2:source>_Im8U8HMZEeWxGaQjZ7dzUQ</bpmn2:source>
+    <bpmn2:target>_Im8U8HMZEeWxGaQjZ7dzUQ</bpmn2:target>
+  </bpmn2:relationship>
+</bpmn2:definitions>
