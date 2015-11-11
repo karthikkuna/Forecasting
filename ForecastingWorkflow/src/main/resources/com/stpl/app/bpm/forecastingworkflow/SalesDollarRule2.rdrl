@@ -1,0 +1,26 @@
+package com.stpl.app.bpm.forecastingworkflow;
+
+import com.stpl.app.bpm.dto.WorkflowRuleDTO;
+import com.stpl.app.bpm.dto.NonMandatedRulesDTO;
+
+rule "SalesDollarRule2"
+	dialect "mvel"
+	ruleflow-group "RG_WorkflowGuidedRules"
+	lock-on-active true
+	salience 99
+	when
+		w1 : WorkflowRuleDTO( allowToExecute == true )
+		f1 : NonMandatedRulesDTO( variableName == "Projected_Contract_Sales_Dollars" , amountGreatest >= 3000 )
+	then
+		f1.setFor_Approve( true );
+		modify( w1 ) {
+				setAllowToExecute( false )
+		}
+		System.out.println("sales dollars 3000 rule");
+		System.out.println("f1.getVariableName-------"+f1.getVariableName());
+		System.out.println("f1.getAmountLowest-------"+f1.getAmountLowest());
+		System.out.println("f1.getAmountGreatest-------"+f1.getAmountGreatest());
+		System.out.println("f1.getPercentLowest-------"+f1.getPercentLowest());
+		System.out.println("f1.getPercentGreatest-------"+f1.getPercentGreatest());
+		System.out.println("w1.getAllowToExecute-------"+w1.getAllowToExecute());
+end
